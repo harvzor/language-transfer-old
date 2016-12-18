@@ -2,14 +2,14 @@
 <head>
     <title>Language Transfer</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" media="screen,projection">
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="/node_modules/materialize-css/dist/css/materialize.min.css" media="screen,projection">
+    <link rel="stylesheet" type="text/css" href="/css/global.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body ng-app="LanguageTransfer" ng-controller="MainController">
     <div class="container clearfix">
         <div class="logo-container">
-            <img src="media/logo.png" alt="Language Transfer Logo" width="200" />
+            <img src="/media/logo.png" alt="Language Transfer Logo" width="200" />
         </div>
         <div class="accordions" ng-controller="LessonsController">
             <div class="card accordion" ng-controller="AccordionController" ng-repeat="lesson in lessons">
@@ -39,11 +39,11 @@
         </div>
         <button class="btn red right" ng-click="deleteAllProgress()" prevent-default>Delete all progress</button>
     </div>
-    <script src="node_modules/angular/angular.min.js"></script>
-    <script src="node_modules/moment/moment.js"></script>
-    <script src="node_modules/angular-audio/app/angular.audio.js"></script>
-    <script src="node_modules/angular-storage/dist/angular-storage.min.js"></script>
-    <script src="node_modules/angular-moment/angular-moment.min.js"></script>
-    <script src="scripts/script.js"></script>
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <script src="/node_modules/moment/moment.js"></script>
+    <script src="/node_modules/angular-audio/app/angular.audio.js"></script>
+    <script src="/node_modules/angular-storage/dist/angular-storage.min.js"></script>
+    <script src="/node_modules/angular-moment/angular-moment.min.js"></script>
+    <script src="/scripts/script.js"></script>
 </body>
 </html>

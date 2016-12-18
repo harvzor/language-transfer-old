@@ -7,4 +7,7 @@ node_modules
 media
 
 # Compiled styles
-styles
+css
+
+# Compiled scripts
+scripts/script.min.js
