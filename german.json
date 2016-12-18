@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "summary": "How to learn with Language Transfer",
+        "source": "media/german/01.mp3",
+        "length": "445"
+    },
+    {
+        "id": 2,
+        "summary": "Basics",
+        "source": "media/german/02.mp3",
+        "length": "320"
+    },
+    {
+        "id": 3,
+        "summary": "Ich, nicht etc",
+        "source": "media/german/03.mp3",
+        "length": "437"
+    },
+    {
+        "id": 4,
+        "summary": "",
+        "source": "media/german/04.mp3",
+        "length": "356"
+    },
+    {
+        "id": 5,
+        "summary": "",
+        "source": "media/german/05.mp3",
+        "length": "372"
+    },
+    {
+        "id": 6,
+        "summary": "",
+        "source": "media/german/06.mp3",
+        "length": "466"
+    },
+    {
+        "id": 7,
+        "summary": "",
+        "source": "media/german/07.mp3",
+        "length": "466"
+    },
+    {
+        "id": 8,
+        "summary": "",
+        "source": "media/german/08.mp3",
+        "length": "357"
+    },
+    {
+        "id": 9,
+        "summary": "",
+        "source": "media/german/08.mp3",
+        "length": "344"
+    },
+    {
+        "id": 10,
+        "summary": "",
+        "source": "media/german/09.mp3",
+        "length": "420"
+    }
+]
