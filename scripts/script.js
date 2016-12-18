@@ -38,14 +38,17 @@ lt.factory('Progress', ['store', '$filter', function(store, $filter) {
                 progress.push({
                     id: lessonId,
                     plays: 1,
-                    lastPlayed: new Date
+                    lastPlayed: new Date,
+                    currentPosition: 0
                 });
             }
 
             store.set('progress', progress);
         },
         updatePositionInTrack: function(lessonId, position) {
-            
+            $filter('getById')(progress, lessonId).currentPosition = position;
+
+            store.set('progress', progress);
         }
     };
 }]);
@@ -60,10 +63,6 @@ lt.controller('MainController', ['$scope', 'Progress', function($scope, Progress
 
 lt.controller('LessonsController', ['$scope', '$filter', 'Progress', 'ngAudio', function($scope, $filter, Progress, ngAudio) {
     $scope.progress = Progress.data;
-
-    var recordProgress = function(lesson) {
-
-    };
 
     $scope.getProgress = function(id) {
         return $filter('getById')($scope.progress, id);
@@ -132,6 +131,16 @@ lt.controller('LessonsController', ['$scope', '$filter', 'Progress', 'ngAudio', 
         },
     ];
 
+    var setTime = function(audio, position) {
+        if (audio.canPlay) {
+            audio.setCurrentTime(position);
+        } else {
+            setTimeout(function() {
+                setTime(audio, position);
+            }, 100);
+        }
+    };
+
     $scope.togglePlay = function(id) {
         var lesson =  $filter('getById')($scope.lessons, id);
 
@@ -143,9 +152,25 @@ lt.controller('LessonsController', ['$scope', '$filter', 'Progress', 'ngAudio', 
 
         if (lesson.audio.paused || typeof lesson.audio.paused === 'undefined') {
             lesson.audio.play();
+
+            // If I try to set the position before the audio has loaded, it will not work.
+            setTime(lesson.audio, $filter('getById')($scope.progress, id).currentPosition);
         } else {
             lesson.audio.pause();
         }
+
+        var recordProgress = function(lessonId) {
+            setTimeout(function() {
+                if (!lesson.audio.paused) {
+
+                    Progress.updatePositionInTrack(lessonId, lesson.audio.currentTime);
+
+                    recordProgress(id);
+                }
+            }, 3000);
+        };
+
+        recordProgress(id);
     };
 }]);
 
