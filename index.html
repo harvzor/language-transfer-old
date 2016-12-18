@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>Language Transfer</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css" media="screen,projection">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body ng-app="LanguageTransfer" ng-controller="MainController">
+    <div class="container clearfix">
+        <div class="logo-container">
+            <img src="media/logo.png" alt="Language Transfer Logo" width="200" />
+        </div>
+        <div class="accordions" ng-controller="LessonsController">
+            <div class="card accordion" ng-controller="AccordionController" ng-repeat="lesson in lessons">
+                <header class="card-content blue-grey white-text accordion-header" ng-class="getProgress(lesson.id).plays > 0 ? 'lighten-3' : ''" ng-click="toggleOpen()">
+                    <div class="accordion-header-text">
+                        Lesson {{lesson.id}} - {{lesson.summary}}
+                    </div>
+                    <div class="accordion-meta">
+                        <div class="chip">
+                            <strong>Length:</strong> {{lesson.length}}
+                        </div>
+                        <div class="chip">
+                            <strong>Plays:</strong> {{getProgress(lesson.id).plays == null ? 0 : getProgress(lesson.id).plays}}
+                        </div>
+                        <div class="chip">
+                            <strong>Last played:</strong>
+                            {{getProgress(lesson.id).lastPlayed == null ? "never!" : ""}}
+                            <time am-time-ago="getProgress(lesson.id).lastPlayed"></time>
+                        </div>
+                    </div>
+                </header>
+                <div class="card-content blue-grey lighten-5 accordion-content" ng-class="{'accordion-open': open}">
+                    <button class="btn" ng-click="togglePlay(lesson.id)">{{lesson.audio == null || lesson.audio.paused ? "Play" : "Pause"}}</button>
+                    <progress max="{{lesson.length}}" value="{{lesson.audio == null ? 0 : lesson.audio.currentTime}}"></progress>
+                </div>
+            </div>
+        </div>
+        <button class="btn red right" ng-click="deleteAllProgress()" prevent-default>Delete all progress</button>
+    </div>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/moment/moment.js"></script>
+    <script src="node_modules/angular-audio/app/angular.audio.js"></script>
+    <script src="node_modules/angular-storage/dist/angular-storage.min.js"></script>
+    <script src="node_modules/angular-moment/angular-moment.min.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+body {
+    margin:0;
+    padding-bottom:10px;
+}
+
+.clearfix {
+    &:after {
+        content:'';
+        display:table;
+        clear:both;
+    }
+}
+
+.logo-container {
+    text-align:center;
+}
+
+.accordion {
+    border:1px solid black;
+    margin:10px;
+
+    .accordion-header {
+       padding:10px; 
+       cursor:pointer;
+       overflow:hidden;
+       font-size:0;
+
+       .accordion-header-text {
+           float:left;
+           padding:5px;
+           font-size:16px;
+       }
+
+       .accordion-meta {
+            float:right;
+
+            .chip {
+                margin-bottom:0;
+            }
+       }
+    }
+
+    .accordion-content {
+        display:none;
+        padding:10px;
+        border-top:1px solid black;
+        font-size:0;
+
+        &.accordion-open {
+            display:flex;
+        }
+
+        button {
+            font-size:16px;
+            margin-right:10px;
+            min-width:150px;
+        }
+
+        progress {
+            height:36px;
+            width:100%;
+            font-size:16px;
+        }
+    }
+}
+
