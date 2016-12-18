@@ -141,6 +141,11 @@ lt.controller('LessonsController', ['$scope', '$filter', 'Progress', 'ngAudio', 
         }
     };
 
+    $scope.scrub = function(id, time) {
+        var lesson =  $filter('getById')($scope.lessons, id);
+        lesson.audio.setCurrentTime(time);
+    };
+
     $scope.togglePlay = function(id) {
         var lesson =  $filter('getById')($scope.lessons, id);
 
