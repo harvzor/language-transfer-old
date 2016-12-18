@@ -1,5 +1,6 @@
 var lt = angular.module('LanguageTransfer', ['angular-storage', 'angularMoment', 'ngAudio']);
 
+// Simple global function that can be used to filter an array of objects by each objects id paramater.
 lt.filter('getById', function() {
     return function(input, id) {
         var i=0, len=input.length;
@@ -14,7 +15,8 @@ lt.filter('getById', function() {
     }
 });
 
-lt.factory('Progress', ['store', function(store) {
+// Store data about user progress through the lessons.
+lt.factory('Progress', ['store', '$filter', function(store, $filter) {
     var progress = store.get('progress');
 
     if (progress === null) {
@@ -29,18 +31,10 @@ lt.factory('Progress', ['store', function(store) {
             store.set('progress', progress);
         },
         updatePlayCount: function(lessonId) {
-            var found = false;
-
-            angular.forEach(progress, function(value, key) {
-                if (value.id === lessonId) {
-                    value.plays++;
-                    value.lastPlayed = new Date
-
-                    found = true;
-                }
-            });
-
-            if (!found) {
+            if ($filter('getById')(progress, lessonId) !== null) {
+                $filter('getById')(progress, lessonId).plays++;
+                $filter('getById')(progress, lessonId).lastPlayed = new Date;
+            } else {
                 progress.push({
                     id: lessonId,
                     plays: 1,
@@ -49,6 +43,9 @@ lt.factory('Progress', ['store', function(store) {
             }
 
             store.set('progress', progress);
+        },
+        updatePositionInTrack: function(lessonId, position) {
+            
         }
     };
 }]);
@@ -152,6 +149,7 @@ lt.controller('LessonsController', ['$scope', '$filter', 'Progress', 'ngAudio', 
     };
 }]);
 
+// Accordions that can be opened and closed.
 lt.controller('AccordionController', ['$scope', function($scope) {
     $scope.open = false;
 
