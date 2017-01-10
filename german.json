@@ -3,60 +3,222 @@
         "id": 1,
         "summary": "How to learn with Language Transfer",
         "source": "media/german/01.mp3",
-        "length": "445"
+        "length": "445.1"
     },
     {
         "id": 2,
         "summary": "Basics",
         "source": "media/german/02.mp3",
-        "length": "320"
+        "length": "321.183"
     },
     {
         "id": 3,
         "summary": "Ich, nicht etc",
         "source": "media/german/03.mp3",
-        "length": "437"
+        "length": "437.316"
     },
     {
         "id": 4,
         "summary": "",
         "source": "media/german/04.mp3",
-        "length": "356"
+        "length": "356.415"
     },
     {
         "id": 5,
         "summary": "",
         "source": "media/german/05.mp3",
-        "length": "372"
+        "length": "372.297"
     },
     {
         "id": 6,
         "summary": "",
         "source": "media/german/06.mp3",
-        "length": "466"
+        "length": "466.495"
     },
     {
         "id": 7,
         "summary": "",
         "source": "media/german/07.mp3",
-        "length": "466"
+        "length": "466.625"
     },
     {
         "id": 8,
         "summary": "",
         "source": "media/german/08.mp3",
-        "length": "357"
+        "length": "357.982"
     },
     {
         "id": 9,
         "summary": "",
         "source": "media/german/08.mp3",
-        "length": "344"
+        "length": "585.117"
     },
     {
         "id": 10,
         "summary": "",
-        "source": "media/german/09.mp3",
-        "length": "420"
+        "source": "media/german/10.mp3",
+        "length": "344.842"
+    },
+    {
+        "id": 11,
+        "summary": "",
+        "source": "media/german/11.mp3",
+        "length": "420.206"
+    },
+    {
+        "id": 12,
+        "summary": "",
+        "source": "media/german/12.mp3",
+        "length": "424.751"
+    },
+    {
+        "id": 13,
+        "summary": "",
+        "source": "media/german/13.mp3",
+        "length": "488.934"
+    },
+    {
+        "id": 14,
+        "summary": "",
+        "source": "media/german/14.mp3",
+        "length": "492.669"
+    },
+    {
+        "id": 15,
+        "summary": "",
+        "source": "media/german/15.mp3",
+        "length": "583.915"
+    },
+    {
+        "id": 16,
+        "summary": "",
+        "source": "media/german/16.mp3",
+        "length": "376.216"
+    },
+    {
+        "id": 17,
+        "summary": "",
+        "source": "media/german/17.mp3",
+        "length": "518.583"
+    },
+    {
+        "id": 18,
+        "summary": "",
+        "source": "media/german/18.mp3",
+        "length": "462.785"
+    },
+    {
+        "id": 19,
+        "summary": "",
+        "source": "media/german/19.mp3",
+        "length": "413.022"
+    },
+    {
+        "id": 20,
+        "summary": "",
+        "source": "media/german/20.mp3",
+        "length": "426.632"
+    },
+    {
+        "id": 21,
+        "summary": "",
+        "source": "media/german/21.mp3",
+        "length": "370.782"
+    },
+    {
+        "id": 22,
+        "summary": "",
+        "source": "media/german/22.mp3",
+        "length": "288.183"
+    },
+    {
+        "id": 23,
+        "summary": "",
+        "source": "media/german/23.mp3",
+        "length": "495.726"
+    },
+    {
+        "id": 24,
+        "summary": "",
+        "source": "media/german/24.mp3",
+        "length": "470.518"
+    },
+    {
+        "id": 25,
+        "summary": "",
+        "source": "media/german/25.mp3",
+        "length": "595.905"
+    },
+    {
+        "id": 26,
+        "summary": "",
+        "source": "media/german/26.mp3",
+        "length": "457.822"
+    },
+    {
+        "id": 27,
+        "summary": "",
+        "source": "media/german/27.mp3",
+        "length": "360.307"
+    },
+    {
+        "id": 28,
+        "summary": "",
+        "source": "media/german/28.mp3",
+        "length": "380.735"
+    },
+    {
+        "id": 29,
+        "summary": "",
+        "source": "media/german/29.mp3",
+        "length": "379.376"
+    },
+    {
+        "id": 30,
+        "summary": "",
+        "source": "media/german/30.mp3",
+        "length": "535.327"
+    },
+    {
+        "id": 31,
+        "summary": "",
+        "source": "media/german/31.mp3",
+        "length": "540.761"
+    },
+    {
+        "id": 32,
+        "summary": "",
+        "source": "media/german/32.mp3",
+        "length": "481.176"
+    },
+    {
+        "id": 33,
+        "summary": "",
+        "source": "media/german/33.mp3",
+        "length": "351.922"
+    },
+    {
+        "id": 34,
+        "summary": "",
+        "source": "media/german/34.mp3",
+        "length": "311.745"
+    },
+    {
+        "id": 35,
+        "summary": "",
+        "source": "media/german/35.mp3",
+        "length": "474.828"
+    },
+    {
+        "id": 36,
+        "summary": "",
+        "source": "media/german/36.mp3",
+        "length": "554.344"
+    },
+    {
+        "id": 37,
+        "summary": "",
+        "source": "media/german/37.mp3",
+        "length": "366.733"
     }
 ]
