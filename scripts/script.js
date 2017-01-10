@@ -78,17 +78,23 @@ lt.controller('MainController', ['$scope', 'Progress', function($scope, Progress
 
 lt.controller('LessonsController', ['$scope', '$filter', 'Progress', /*'Data',*/ '$http', 'ngAudio', function($scope, $filter, Progress, /* Data, */ $http, ngAudio) {
     $scope.progress = Progress.data;
+    
+    var recording = false;
 
-    $scope.getProgress = function(id) {
-        return $filter('getById')($scope.progress, id);
+    var recordProgress = function(lesson, lessonId) {
+        if (!recording) {
+            return;
+        }
+
+        setTimeout(function() {
+            if (!lesson.audio.paused) {
+
+                Progress.updatePositionInTrack(lessonId, lesson.audio.currentTime);
+
+                recordProgress(lesson, lessonId);
+            }
+        }, 1000);
     };
-
-    $http({
-        methid: 'GET',
-        url: '/german.json',
-    }).then(function successCallback(response) {
-        $scope.lessons = response.data;
-    });
 
     var setTime = function(audio, position) {
         if (audio.canPlay) {
@@ -100,41 +106,63 @@ lt.controller('LessonsController', ['$scope', '$filter', 'Progress', /*'Data',*/
         }
     };
 
+    $http({
+        methid: 'GET',
+        url: '/german.json',
+    }).then(function successCallback(response) {
+        $scope.lessons = response.data;
+
+        for (var i = 0; i < $scope.lessons.length; i++) {
+            $scope.lessons[i].buttonText = 'Play';
+        }
+    });
+
+    $scope.getProgress = function(id) {
+        return $filter('getById')($scope.progress, id);
+    };
+
     $scope.scrub = function(id, time) {
         var lesson =  $filter('getById')($scope.lessons, id);
+
         lesson.audio.setCurrentTime(time);
     };
 
     $scope.togglePlay = function(id) {
-        var lesson =  $filter('getById')($scope.lessons, id);
+        var lesson = $filter('getById')($scope.lessons, id);
 
         if (typeof lesson.audio === 'undefined') {
+            lesson.buttonText = 'Loading...';
+
             lesson.audio = ngAudio.load(lesson.source);
 
             Progress.updatePlayCount(id);
         }
 
-        if (lesson.audio.paused || typeof lesson.audio.paused === 'undefined') {
+        // If the user is on a slow connection, then the audio might not have loaded yet.
+        // Wait until the audio can play before attempting to play a promise exception may occur.
+        //alert(lesson.audio.canPlay);
+        if (typeof lesson.audio.canPlay === 'undefined') {
+            setTimeout(function() {
+                $scope.togglePlay(id);
+            }, 1000);
+        } else if (lesson.audio.paused || typeof lesson.audio.paused === 'undefined') {
+            lesson.buttonText = 'Pause';
+
             lesson.audio.play();
 
             // If I try to set the position before the audio has loaded, it will not work.
             setTime(lesson.audio, $filter('getById')($scope.progress, id).currentPosition);
+
+            recording = true;
+
+            recordProgress(lesson, id);
         } else {
+            lesson.buttonText = 'Play';
+
             lesson.audio.pause();
+
+            recording = false;
         }
-
-        var recordProgress = function(lessonId) {
-            setTimeout(function() {
-                if (!lesson.audio.paused) {
-
-                    Progress.updatePositionInTrack(lessonId, lesson.audio.currentTime);
-
-                    recordProgress(id);
-                }
-            }, 3000);
-        };
-
-        recordProgress(id);
     };
 }]);
 

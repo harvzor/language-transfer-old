@@ -32,7 +32,7 @@
                     </div>
                 </header>
                 <div class="card-content blue-grey lighten-5 accordion-content" ng-class="{'accordion-open': open}">
-                    <button class="btn" ng-click="togglePlay(lesson.id)">{{lesson.audio == null || lesson.audio.paused ? "Play" : "Pause"}}</button>
+                    <button class="btn" ng-click="togglePlay(lesson.id)">{{lesson.buttonText}}</button>
                     <input type="range" min="0" max="{{lesson.length}}" ng-value="lesson.audio == null ? 0 : lesson.audio.currentTime" ng-model="time" ng-change="lesson.audio == null ? null : scrub(lesson.id, time)" ng-model-options="{ debounce: 100 }">
                 </div>
             </div>

@@ -4,12 +4,13 @@
   "description": "A language learning app using audio resources from Language Transfer.",
   "main": "index.html",
   "dependencies": {
-    "angular-audio": "^1.7.3",
     "angular": "^1.6.0",
+    "angular-audio": "^1.7.3",
+    "angular-moment": "^1.0.1",
     "angular-storage": "^0.0.15",
     "materialize-css": "^0.97.8",
     "moment": "^2.17.1",
-    "angular-moment": "^1.0.1"
+    "sass-mq": "^3.3.2"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

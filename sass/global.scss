@@ -1,3 +1,7 @@
+@import "../node_modules/sass-mq/mq";
+
+@import "config";
+
 body {
     margin:0;
     padding-bottom:10px;
@@ -24,18 +28,37 @@ body {
        cursor:pointer;
        overflow:hidden;
        font-size:0;
+       text-align:center;
+
+        @include mq($from: small) {
+            text-align:left;
+        }
 
        .accordion-header-text {
-           float:left;
            padding:5px;
            font-size:16px;
+
+            @include mq($from: small) {
+               float:left;
+            }
        }
 
        .accordion-meta {
-            float:right;
+            @include mq($from: small) {
+                float:right;
+            }
 
             .chip {
-                margin-bottom:0;
+                display:block;
+
+                &:last-child {
+                    margin-bottom:0;
+                }
+
+                @include mq($from: small) {
+                    display:inline-block;
+                    margin-bottom:0;
+                }
             }
        }
     }
@@ -47,13 +70,22 @@ body {
         font-size:0;
 
         &.accordion-open {
-            display:flex;
+            display:block;
+
+            @include mq($from: small) {
+                display:flex;
+            }
         }
 
         button {
             font-size:16px;
             margin-right:10px;
+            width:100%;
             min-width:150px;
+
+            @include mq($from: small) {
+                width:auto;
+            }
         }
     }
 }
